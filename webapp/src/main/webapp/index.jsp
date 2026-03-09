@@ -1,6 +1,6 @@
 <form action="action_page.php">
   <div class="container">
-    <h1>New user Register for training - DevOps Techlab</h1>
+    <h1>New user Register</h1>
     <p>automated deployment in deployment server</p>
     <hr>
      
