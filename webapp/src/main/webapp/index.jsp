@@ -1,7 +1,7 @@
 <form action="action_page.php">
   <div class="container">
     <h1>New user Register</h1>
-    <p>deployed project using jenkins pipeline --used pipeline</p>
+    <p>deployed project using jenkins pipeline </p>
     <hr>
      
     <label for="Name"><b>Enter Name</b></label>
