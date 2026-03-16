@@ -20,5 +20,20 @@ pipeline {
                 archiveArtifacts artifacts: '**/*.war', followSymlinks: false
             }
         }
+        stage('build deploy-pipeline') {
+            steps {
+                build wait: false, job: 'deploy-pipeline'
+            }
+        }
+        stage('copy artifact') {
+            steps {
+                copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'build-pipeline', selector: lastSuccessful()
+            }
+        }
+        stage('deploy') {
+            steps {
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'deployCreds', path: '', url: 'http://34.30.41.125:8080/')], contextPath: null, war: '**/*.war'
+            }
+        }        
     }
 }
